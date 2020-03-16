@@ -10,7 +10,7 @@ using RentalMovies.Data;
 namespace RentalMovies.Data.Migrations
 {
     [DbContext(typeof(RentalMoviesDbContext))]
-    [Migration("20200312222446_InitDb")]
+    [Migration("20200316162249_InitDb")]
     partial class InitDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
