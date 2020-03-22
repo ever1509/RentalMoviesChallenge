@@ -8,11 +8,15 @@
     <PackageReference Include="AutoMapper" Version="9.0.0" />
     <PackageReference Include="FluentValidation" Version="8.6.2" />
     <PackageReference Include="MediatR" Version="8.0.1" />
+    <PackageReference Include="NLog" Version="4.6.8" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Movies\" />
-    <Folder Include="RentalMovies\" />
+    <Folder Include="Movies\DeleteMovie\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RentalMovies.Data\RentalMovies.Data.csproj" />
   </ItemGroup>
 
 </Project>
