@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RentalMovies.Infrastucture"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RentalMovies.API", "src\RentalMovies.API\RentalMovies.API.csproj", "{03A4D0D0-BD74-424A-A008-7BE847641935}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RentalMovies.Tests", "src\RentalMovies.Tests\RentalMovies.Tests.csproj", "{84247B85-B61A-48B0-B23F-FE81A4365D4B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{03A4D0D0-BD74-424A-A008-7BE847641935}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{03A4D0D0-BD74-424A-A008-7BE847641935}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{03A4D0D0-BD74-424A-A008-7BE847641935}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84247B85-B61A-48B0-B23F-FE81A4365D4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84247B85-B61A-48B0-B23F-FE81A4365D4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84247B85-B61A-48B0-B23F-FE81A4365D4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84247B85-B61A-48B0-B23F-FE81A4365D4B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

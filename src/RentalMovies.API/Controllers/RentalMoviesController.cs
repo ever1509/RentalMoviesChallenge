@@ -22,13 +22,13 @@ namespace RentalMovies.API.Controllers
     [ApiController]
     public class RentalMoviesController : ControllerBase
     {
-        private readonly IMediator _mediator;
         private readonly ILogger<RentalMoviesController> _logger;
+        private readonly IMediator _mediator;
 
-        public RentalMoviesController(IMediator mediator, ILogger<RentalMoviesController> logger)
+        public RentalMoviesController(ILogger<RentalMoviesController> logger, IMediator mediator)
         {
-            _mediator = mediator;
             _logger = logger;
+            _mediator = mediator;
         }
 
         [HttpGet("{page:int=1}/{pageSize=4}")]
