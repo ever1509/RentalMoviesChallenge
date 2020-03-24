@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RentalMovies.Domain", "src\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RentalMovies.Infrastucture", "src\RentalMovies.Infrastucture\RentalMovies.Infrastucture.csproj", "{6AD772A2-662A-4EE8-91A7-3871CCEE1353}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RentalMovies.API", "src\RentalMovies.API\RentalMovies.API.csproj", "{03A4D0D0-BD74-424A-A008-7BE847641935}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{6AD772A2-662A-4EE8-91A7-3871CCEE1353}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6AD772A2-662A-4EE8-91A7-3871CCEE1353}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6AD772A2-662A-4EE8-91A7-3871CCEE1353}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03A4D0D0-BD74-424A-A008-7BE847641935}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03A4D0D0-BD74-424A-A008-7BE847641935}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03A4D0D0-BD74-424A-A008-7BE847641935}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03A4D0D0-BD74-424A-A008-7BE847641935}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
