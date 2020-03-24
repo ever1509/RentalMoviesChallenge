@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -20,6 +21,7 @@ namespace RentalMovies.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors("AllowRentalMoviesOrigin")]
     public class RentalMoviesController : ControllerBase
     {
         private readonly ILogger<RentalMoviesController> _logger;
@@ -93,7 +95,7 @@ namespace RentalMovies.API.Controllers
             return Ok(movieId);
         }
 
-        [HttpPut("RentMovie")]
+        [HttpPut("RentalMovie")]
         //[Authorize]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         public async Task<IActionResult> RentalMovie([FromBody] RentalMovieCommand command)
