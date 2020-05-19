@@ -17,6 +17,5 @@ namespace RentalMovies.Domain.Entities
         public bool IsPenaltySolved { get; set; }
 
         public virtual Stock Stock { get; set; }
-
     }
 }

@@ -6,7 +6,7 @@ namespace RentalMovies.Domain.Enums
 {
     public enum StatusMovie
     {
-        Rented=1,
-        Purchased=2
+        Rented = 1,
+        Purchased = 2
     }
 }
