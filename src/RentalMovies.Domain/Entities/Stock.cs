@@ -16,6 +16,6 @@ namespace RentalMovies.Domain.Entities
         public Guid UniqueKey { get; set; }
 
         public virtual Movie Movie { get; set; }
-        public virtual ICollection<RentalMovie> RentalMovies { get; private set; }
+        public virtual ICollection<RentalMovie> RentalMovies { get; set; }
     }
 }
