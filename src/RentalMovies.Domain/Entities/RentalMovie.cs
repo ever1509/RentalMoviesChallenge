@@ -14,7 +14,7 @@ namespace RentalMovies.Domain.Entities
         public DateTime? ReturnDate { get; set; }
         public StatusMovie StatusMovie { get; set; }
         public decimal PenaltyMoney { get; set; }
-        public bool IsPenaltySolved { get; set; }
+        public bool? IsPenaltySolved { get; set; }
 
         public virtual Stock Stock { get; set; }
     }
