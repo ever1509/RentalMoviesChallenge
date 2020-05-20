@@ -4,8 +4,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using RentalMovies.Application;
+using RentalMovies.Application.Common.Interfaces;
 using RentalMovies.Infrastructure;
 using RentalMovies.Presentation.Configurations;
+using RentalMovies.Presentation.Services;
 
 namespace RentalMovies.Presentation
 {
@@ -32,6 +34,8 @@ namespace RentalMovies.Presentation
 
             services.AddApplication();
             services.AddInfrastructure(Configuration);
+
+            services.AddScoped<ICurrentUserService, CurrentUserService>();
 
             services.AddControllers();
         }
