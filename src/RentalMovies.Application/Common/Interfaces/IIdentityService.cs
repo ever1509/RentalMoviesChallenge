@@ -11,6 +11,9 @@ namespace RentalMovies.Application.Common.Interfaces
         Task<bool> DeleteUserAsync(string userId);
         Task<string> GetUserNameAsync(string userId);
         Task<AuthenticationResult> RefreshTokenAsync(string token, string refreshToken);
-
+        Task<AuthenticationResult> SignOutAsync();
+        Task ForgotPasswordAsync(string email);
+        Task RecoveryPasswordAsync(string email);
+        Task ConfirmAccountAsync(string email);
     }
 }

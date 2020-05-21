@@ -17,9 +17,4 @@
     <ProjectReference Include="..\RentalMovies.Domain\RentalMovies.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Common\Models\Responses\" />
-    <Folder Include="Common\Models\Requests\" />
-  </ItemGroup>
-
 </Project>

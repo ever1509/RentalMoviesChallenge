@@ -6,8 +6,8 @@ using Microsoft.Extensions.Hosting;
 using RentalMovies.Application;
 using RentalMovies.Application.Common.Interfaces;
 using RentalMovies.Infrastructure;
+using RentalMovies.Infrastructure.Identity;
 using RentalMovies.Presentation.Configurations;
-using RentalMovies.Presentation.Services;
 
 namespace RentalMovies.Presentation
 {

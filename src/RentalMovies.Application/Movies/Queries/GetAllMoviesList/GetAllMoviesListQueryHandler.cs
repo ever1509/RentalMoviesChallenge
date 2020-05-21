@@ -10,6 +10,7 @@ using MediatR;
 using Microsoft.EntityFrameworkCore;
 using RentalMovies.Application.Common.Interfaces;
 using RentalMovies.Application.Common.Models;
+using RentalMovies.Domain.Enums;
 
 namespace RentalMovies.Application.Movies.Queries.GetAllMoviesList
 {
@@ -17,35 +18,62 @@ namespace RentalMovies.Application.Movies.Queries.GetAllMoviesList
     {
         private readonly IRentalMoviesDbContext _context;
         private readonly IMapper _mapper;
+        private readonly ICurrentUserService _currentUserService;
 
-        public GetAllMoviesListQueryHandler(IRentalMoviesDbContext context, IMapper mapper)
+        public GetAllMoviesListQueryHandler(IRentalMoviesDbContext context, IMapper mapper, ICurrentUserService currentUserService)
         {
             _context = context;
             _mapper = mapper;
+            _currentUserService = currentUserService;
         }
         public async Task<MoviesListVm> Handle(GetAllMoviesListQuery request, CancellationToken cancellationToken)
         {
-            //TODO: Handle movies getting the role from user and limit only availability
             List<MovieDto> movies;
+
+
             if (!string.IsNullOrEmpty(request.Filter))
             {
 
-                movies = await _context.Movies
-                    .Include(e => e.Stocks)
-                    .Include(e => e.MovieLikes)
-                    //.Where(e => e.Stocks.Any(s => s.IsAvailable))
-                    .Where(e => e.Title.Contains(request.Filter))
-                    .ProjectTo<MovieDto>(_mapper.ConfigurationProvider)
-                    .ToListAsync(cancellationToken);
+                if (_currentUserService.RoleId == Enum.GetName(typeof(UserRole), (int)UserRole.Admin))
+                {
+                    movies = await _context.Movies
+                        .Include(e => e.Stocks)
+                        .Include(e => e.MovieLikes)
+                        .Where(e => e.Title.Contains(request.Filter))
+                        .ProjectTo<MovieDto>(_mapper.ConfigurationProvider)
+                        .ToListAsync(cancellationToken);
+                }
+                else
+                {
+                    movies = await _context.Movies
+                        .Include(e => e.Stocks)
+                        .Include(e => e.MovieLikes)
+                        .Where(e => e.Stocks.Any(s => s.IsAvailable))
+                        .Where(e => e.Title.Contains(request.Filter))
+                        .ProjectTo<MovieDto>(_mapper.ConfigurationProvider)
+                        .ToListAsync(cancellationToken);
+                }
+                
             }
             else
             {
-                movies = await _context.Movies
-                    .Include(e => e.Stocks)
-                    .Include(e => e.MovieLikes)
-                    //.Where(e => e.Stocks.Any(s => s.IsAvailable))
-                    .ProjectTo<MovieDto>(_mapper.ConfigurationProvider)
-                    .ToListAsync(cancellationToken);
+                if (_currentUserService.RoleId == Enum.GetName(typeof(UserRole), UserRole.Admin))
+                {
+                    movies = await _context.Movies
+                        .Include(e => e.Stocks)
+                        .Include(e => e.MovieLikes)
+                        .ProjectTo<MovieDto>(_mapper.ConfigurationProvider)
+                        .ToListAsync(cancellationToken);
+                }
+                else
+                {
+                    movies = await _context.Movies
+                        .Include(e => e.Stocks)
+                        .Include(e => e.MovieLikes)
+                        .Where(e => e.Stocks.Any(s => s.IsAvailable))
+                        .ProjectTo<MovieDto>(_mapper.ConfigurationProvider)
+                        .ToListAsync(cancellationToken);
+                }
             }
 
 

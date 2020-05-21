@@ -8,6 +8,8 @@ using Microsoft.Extensions.DependencyInjection;
 using RentalMovies.Application.Common.Interfaces;
 using RentalMovies.Infrastructure.Data;
 using RentalMovies.Infrastructure.Identity;
+using RentalMovies.Infrastructure.Mail;
+using RentalMovies.Infrastructure.Mail.EmailConfiguration;
 
 namespace RentalMovies.Infrastructure
 {
@@ -39,6 +41,9 @@ namespace RentalMovies.Infrastructure
                 .AddEntityFrameworkStores<RentalMoviesDbContext>();
 
             services.AddTransient<IIdentityService, IdentityService>();
+
+            services.AddSingleton<IEmailConfiguration>(configuration.GetSection("EmailConfiguration").Get<EmailConfiguration>());
+            services.AddTransient<IEmailService, EmailService>();
 
             return services;
         }
