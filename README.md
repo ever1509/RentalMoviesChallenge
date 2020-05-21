@@ -71,7 +71,7 @@ Project for rental movies in order to handle user who rental movies
             1)  **_dotnet ef migrations add "InitMigration"  --startup-project ..\RentalMovies.Presentation\ --output-dir .\Data\Migrations_**
      - If you want to install the database:
        Move to the root folder ot the project, and execute the following command:
-            **1)  dotnet ef database update --project src\RentalMovies.Infrastructure\ --startup-project src\RentalMovies.Presentation\ **
+            - **_dotnet ef database update --project src\RentalMovies.Infrastructure\ --startup-project src\RentalMovies.Presentation_**
  3. Run the API
     To run the API you can move to the project RentalMovies.Presentation with PowerShell with administration privilegies and then execute the following command:
       1) **_dotnet run_**
