@@ -26,7 +26,7 @@ namespace RentalMovies.Presentation.Controllers
         private IMediator _mediator;
         private readonly ILogger<RentalMoviesController> _logger;
 
-        public RentalMoviesController(IMediator mediator, ILogger<RentalMoviesController> logger)
+        public RentalMoviesController(ILogger<RentalMoviesController> logger, IMediator mediator)
         {
             _mediator = mediator;
             _logger = logger;
