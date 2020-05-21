@@ -65,18 +65,20 @@ Project for rental movies in order to handle user who rental movies
  2. Database Migrations:
     If you want to add new changes in the database:
       - To use dotnet-ef for your migrations please add the following flags to your command (values assume you are executing from repository root)      
-        - For example, to add a new migration from the root folder:
-            1. dotnet ef migrations add "InitMigration" --project src\RentalMovies.Infrastructure --startup-project src\RentalMovies.Presentation --output-dir Data\Migrations
-        - or you can do the following: Move to the project src\RentalMovies.Infrastructure with PowerShell and then execute the following:
-            1. dotnet ef migrations add "InitMigration"  --startup-project ..\RentalMovies.Presentation\ --output-dir .\Data\Migrations
-     If you want to install the database:
-      - Move to the root folder ot the project, and execute the following command:
-        dotnet ef database update --project src\RentalMovies.Infrastructure\ --startup-project src\RentalMovies.Presentation\
+      - For example, to add a new migration from the root folder:
+            - **_dotnet ef migrations add "InitMigration" --project src\RentalMovies.Infrastructure --startup-project src\RentalMovies.Presentation --output-dir Data\Migrations_**
+      - or you can do the following: Move to the project src\RentalMovies.Infrastructure with PowerShell and then execute the following:
+            1)  **_dotnet ef migrations add "InitMigration"  --startup-project ..\RentalMovies.Presentation\ --output-dir .\Data\Migrations_**
+     - If you want to install the database:
+       Move to the root folder ot the project, and execute the following command:
+            - **_dotnet ef database update --project src\RentalMovies.Infrastructure\ --startup-project src\RentalMovies.Presentation_**
  3. Run the API
     To run the API you can move to the project RentalMovies.Presentation with PowerShell with administration privilegies and then execute the following command:
-      1. dotnet run
+      1) **_dotnet run_**
     
     To watch the the API executed you can to the url https://localhost:5001/swagger
+    _Example:_
+    ![alt text](https://github.com/ever1509/RentalMoviesChallenge/images/APIDemo.jpg?raw=true)
       
       
       
