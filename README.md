@@ -78,7 +78,7 @@ Project for rental movies in order to handle user who rental movies
     
     To watch the the API executed you can to the url https://localhost:5001/swagger
     _Example:_
-    ![alt text](https://github.com/ever1509/RentalMoviesChallenge/images/APIDemo.jpg?raw=true)
+    ![alt text](https://github.com/ever1509/RentalMoviesChallenge/blob/master/images/APIDemo.png?raw=true)
       
       
       
