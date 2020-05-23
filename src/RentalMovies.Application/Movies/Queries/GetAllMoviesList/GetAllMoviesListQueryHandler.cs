@@ -94,7 +94,7 @@ namespace RentalMovies.Application.Movies.Queries.GetAllMoviesList
             int currentPageSize = pageSize.Value;
             int totalm = movies.Count();
 
-            movies = movies.Skip(currentPage * currentPageSize)
+            movies = movies.Skip((currentPage-1) * currentPageSize)
                 .Take(currentPageSize).ToList();
 
             return new Pagination<MovieDto>
