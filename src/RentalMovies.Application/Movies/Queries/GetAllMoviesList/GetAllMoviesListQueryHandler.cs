@@ -30,26 +30,23 @@ namespace RentalMovies.Application.Movies.Queries.GetAllMoviesList
         {
             List<MovieDto> movies;
 
+            var querableMovies = _context.Movies
+                .Include(e => e.Stocks)
+                .Include(e => e.MovieLikes);
 
             if (!string.IsNullOrEmpty(request.Filter))
             {
 
                 if (_currentUserService.RoleId == Enum.GetName(typeof(UserRole), (int)UserRole.Admin))
                 {
-                    movies = await _context.Movies
-                        .Include(e => e.Stocks)
-                        .Include(e => e.MovieLikes)
-                        .Where(e => e.Title.Contains(request.Filter))
+                    movies = await querableMovies.Where(e => e.Title.Contains(request.Filter))
                         .ProjectTo<MovieDto>(_mapper.ConfigurationProvider)
                         .ToListAsync(cancellationToken);
                 }
                 else
                 {
-                    movies = await _context.Movies
-                        .Include(e => e.Stocks)
-                        .Include(e => e.MovieLikes)
+                    movies = await querableMovies.Where(e => e.Title.Contains(request.Filter))
                         .Where(e => e.Stocks.Any(s => s.IsAvailable))
-                        .Where(e => e.Title.Contains(request.Filter))
                         .ProjectTo<MovieDto>(_mapper.ConfigurationProvider)
                         .ToListAsync(cancellationToken);
                 }
@@ -59,17 +56,13 @@ namespace RentalMovies.Application.Movies.Queries.GetAllMoviesList
             {
                 if (_currentUserService.RoleId == Enum.GetName(typeof(UserRole), UserRole.Admin))
                 {
-                    movies = await _context.Movies
-                        .Include(e => e.Stocks)
-                        .Include(e => e.MovieLikes)
+                    movies = await querableMovies
                         .ProjectTo<MovieDto>(_mapper.ConfigurationProvider)
                         .ToListAsync(cancellationToken);
                 }
                 else
                 {
-                    movies = await _context.Movies
-                        .Include(e => e.Stocks)
-                        .Include(e => e.MovieLikes)
+                    movies = await querableMovies
                         .Where(e => e.Stocks.Any(s => s.IsAvailable))
                         .ProjectTo<MovieDto>(_mapper.ConfigurationProvider)
                         .ToListAsync(cancellationToken);
