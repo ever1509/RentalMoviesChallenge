@@ -76,7 +76,7 @@ Project for rental movies in order to handle user who rental movies
     To run the API you can move to the project RentalMovies.Presentation with PowerShell with administration privilegies and then execute the following command:
       1) **_dotnet run_**
     
-    To watch the the API executed you can to the url https://localhost:5001/swagger
+    To watch the API you can go to the url https://localhost:5001/swagger
     _Example:_
     ![alt text](https://github.com/ever1509/RentalMoviesChallenge/blob/master/images/APIDemo.png?raw=true)
       
