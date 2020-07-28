@@ -31,55 +31,6 @@ namespace RentalMovies.Infrastructure.Data
             base.OnModelCreating(builder);
         }
 
-        public async Task BeginTransactionAsync()
-        {
-            if (_currentTransaction != null)
-            {
-                return;
-            }
 
-            _currentTransaction = await base.Database.BeginTransactionAsync(IsolationLevel.ReadCommitted);
-        }
-
-        public async Task CommitTransactionAsync()
-        {
-            try
-            {
-                await SaveChangesAsync().ConfigureAwait(false);
-
-                _currentTransaction?.Commit();
-            }
-            catch (Exception e)
-            {
-                RollBackTransaction();
-                Console.WriteLine(e.ToString());
-                throw;
-            }
-            finally
-            {
-                if (_currentTransaction != null)
-                {
-                    _currentTransaction.Dispose();
-                    _currentTransaction = null;
-                }
-                
-            }
-        }
-
-        private void RollBackTransaction()
-        {
-            try
-            {
-                _currentTransaction?.Rollback();
-            }
-            finally
-            {
-                if (_currentTransaction != null)
-                {
-                    _currentTransaction.Dispose();
-                    _currentTransaction = null;
-                }
-            }
-        }
     }
 }
